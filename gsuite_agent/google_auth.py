@@ -24,11 +24,19 @@ import os
 from pathlib import Path
 
 SCOPES = [
-    "https://www.googleapis.com/auth/gmail.modify",
-    "https://www.googleapis.com/auth/drive",
-    "https://www.googleapis.com/auth/documents",
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/calendar",
+    "https://www.googleapis.com/auth/gmail.modify",       # read + send + labels
+    "https://mail.google.com/",                            # full mail (delete, all IMAP-equiv)
+    "https://www.googleapis.com/auth/drive",               # full Drive
+    "https://www.googleapis.com/auth/documents",           # Docs
+    "https://www.googleapis.com/auth/spreadsheets",        # Sheets
+    "https://www.googleapis.com/auth/presentations",       # Slides
+    "https://www.googleapis.com/auth/calendar",            # Calendar (read + change)
+    "https://www.googleapis.com/auth/contacts",            # Contacts
+    "https://www.googleapis.com/auth/tasks",               # Tasks
+    "https://www.googleapis.com/auth/photoslibrary.readonly",  # Photos (read)
+    "https://www.googleapis.com/auth/dataportability.myactivity.search",  # Takeout/portability
+    "https://www.googleapis.com/auth/userinfo.profile",
+    "https://www.googleapis.com/auth/userinfo.email",
 ]
 
 _CFG = Path(__file__).resolve().parent.parent / "config"

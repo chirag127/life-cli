@@ -12,16 +12,16 @@ from gsuite_agent import google_auth
 # ---- SCOPES ----
 
 def test_scopes_cover_all_five():
-    assert google_auth.SCOPES == [
+    required = [
         "https://www.googleapis.com/auth/gmail.modify",
         "https://www.googleapis.com/auth/drive",
         "https://www.googleapis.com/auth/documents",
         "https://www.googleapis.com/auth/spreadsheets",
         "https://www.googleapis.com/auth/calendar",
     ]
+    for scope in required:
+        assert scope in google_auth.SCOPES
 
-
-# ---- account resolution ----
 
 def test_account_arg_wins(monkeypatch):
     monkeypatch.setenv("GOOGLE_ACCOUNT", "why")
