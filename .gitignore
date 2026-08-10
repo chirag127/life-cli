@@ -1,8 +1,13 @@
 .env
+.env.local
+*.token
 __pycache__/
 *.pyc
+.pytest_cache/
+.venv/
 downloads/
-
-# Gmail OAuth (never commit)
-config/gmail-token.json
-config/gmail-oauth-client.json
+# Google OAuth secrets — NEVER commit (.env.enc IS committed, it's encrypted)
+config/google-oauth-client.json
+config/token-*.json
+config/google-token.json
+config/himalaya-config.toml

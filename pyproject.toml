@@ -9,6 +9,8 @@ dependencies = ["python-dotenv>=1.2.2", "casparser>=0.8.0", "pyxirr>=0.10.8", "g
 
 [project.scripts]
 mail-agent = "gsuite_agent.request:main"
+gtool = "gsuite_agent.gtool:main"
+gsuite = "gsuite_agent.gtool:main"
 
 [project.optional-dependencies]
 dev = ["pytest>=8.4.2"]

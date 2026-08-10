@@ -1,19 +1,8 @@
-"""Gmail API (OAuth2) backend — the universal path: send + read + search + download.
+"""Gmail API — send + read + search + download, per-account.
 
-Works on personal AND Workspace accounts, send + read in one scoped token, no
-password, revocable. This is the recommended backend (App Password/SMTP is
-send-only; himalaya needs a binary). Drop-in for mail.py's interface, so the CAS
-module works unchanged.
-
-One-time setup:
-1. console.cloud.google.com -> new project -> enable Gmail API.
-2. OAuth consent screen -> External -> add your Gmail as a test user.
-3. Credentials -> OAuth client ID -> Desktop app -> download JSON to
-   config/gmail-oauth-client.json.
-4. First call opens a browser to authorize; token cached to
-   config/gmail-token.json (git-ignored).
-
-Scope gmail.modify = send + read + label (least privilege that covers CAS).
+Uses shared google_auth (ONE OAuth token per account, all scopes). Account
+selected by name (env GOOGLE_ACCOUNT or account= arg); passed straight to
+google_auth.service. Never builds its own credentials.
 """
 from __future__ import annotations
 
@@ -23,40 +12,17 @@ import os
 from email.message import EmailMessage
 from pathlib import Path
 
-SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]
-_CFG = Path(__file__).resolve().parent.parent / "config"
-CLIENT_SECRET = _CFG / "gmail-oauth-client.json"
-TOKEN_FILE = _CFG / "gmail-token.json"
+from . import google_auth
 
 
-def _service():
-    from google.auth.transport.requests import Request
-    from google.oauth2.credentials import Credentials
-    from google_auth_oauthlib.flow import InstalledAppFlow
-    from googleapiclient.discovery import build
-
-    creds = None
-    if TOKEN_FILE.exists():
-        creds = Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            if not CLIENT_SECRET.exists():
-                raise FileNotFoundError(
-                    f"OAuth client secret missing at {CLIENT_SECRET} — see module docstring"
-                )
-            flow = InstalledAppFlow.from_client_secrets_file(str(CLIENT_SECRET), SCOPES)
-            creds = flow.run_local_server(port=0)
-        _CFG.mkdir(exist_ok=True)
-        TOKEN_FILE.write_text(creds.to_json())
-    return build("gmail", "v1", credentials=creds)
+def _service(account: str | None = None):
+    return google_auth.service("gmail", "v1", account=account)
 
 
 # ---- send ----
 
 def send(to: str, subject: str, body: str, attachments: list[str] | None = None,
-         sender: str | None = None) -> str:
+         sender: str | None = None, account: str | None = None) -> str:
     msg = EmailMessage()
     msg["To"] = to
     if sender:
@@ -70,7 +36,7 @@ def send(to: str, subject: str, body: str, attachments: list[str] | None = None,
             msg.add_attachment(f.read(), maintype=maintype, subtype=subtype,
                                filename=os.path.basename(path))
     raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
-    sent = _service().users().messages().send(userId="me", body={"raw": raw}).execute()
+    sent = _service(account).users().messages().send(userId="me", body={"raw": raw}).execute()
     return sent["id"]
 
 
@@ -84,27 +50,27 @@ def _summary(svc, mid: str) -> dict:
             "date": h.get("Date", ""), "snippet": m.get("snippet", "")}
 
 
-def search(query: str, max_results: int = 50) -> list[dict]:
-    svc = _service()
+def search(query: str, max_results: int = 50, account: str | None = None) -> list[dict]:
+    svc = _service(account)
     r = svc.users().messages().list(userId="me", q=query, maxResults=max_results).execute()
     return [_summary(svc, m["id"]) for m in r.get("messages", [])]
 
 
-def list_inbox(mailbox: str = "INBOX", page: int = 1, page_size: int = 50) -> list[dict]:
-    svc = _service()
+def list_inbox(mailbox: str = "INBOX", page: int = 1, page_size: int = 50,
+               account: str | None = None) -> list[dict]:
+    svc = _service(account)
     r = svc.users().messages().list(userId="me", labelIds=[mailbox],
                                     maxResults=page_size).execute()
     return [_summary(svc, m["id"]) for m in r.get("messages", [])]
 
 
-def read(msg_id: str) -> dict:
-    svc = _service()
-    m = svc.users().messages().get(userId="me", id=msg_id, format="full").execute()
-    return m
+def read(msg_id: str, account: str | None = None) -> dict:
+    svc = _service(account)
+    return svc.users().messages().get(userId="me", id=msg_id, format="full").execute()
 
 
-def download_attachments(msg_id: str, out_dir: str) -> list[str]:
-    svc = _service()
+def download_attachments(msg_id: str, out_dir: str, account: str | None = None) -> list[str]:
+    svc = _service(account)
     m = svc.users().messages().get(userId="me", id=msg_id, format="full").execute()
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
