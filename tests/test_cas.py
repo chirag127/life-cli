@@ -5,7 +5,7 @@ from datetime import date
 
 import pytest
 
-from mail_agent import cas
+from gsuite_agent import cas
 
 
 def _txns(rate_flows):

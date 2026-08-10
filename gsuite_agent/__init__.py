@@ -1,4 +1,4 @@
-from mail_agent.config import (
+from gsuite_agent.config import (
     Config,
     ConfigError,
     RENDERED_CONFIG,

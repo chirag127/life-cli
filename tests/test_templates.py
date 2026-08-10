@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from mail_agent.templates_loader import FIELDS, load_index, render
+from gsuite_agent.templates_loader import FIELDS, load_index, render
 
 KEYS = [
     "statement-of-account",
@@ -61,5 +61,5 @@ def test_missing_field_becomes_blank(key):
 def test_index_is_valid_json():
     from importlib.resources import files
 
-    raw = files("mail_agent.templates").joinpath("index.json").read_text(encoding="utf-8")
+    raw = files("gsuite_agent.templates").joinpath("index.json").read_text(encoding="utf-8")
     assert json.loads(raw)

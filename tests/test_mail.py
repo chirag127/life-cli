@@ -1,6 +1,6 @@
 import pytest
 
-from mail_agent import mail
+from gsuite_agent import mail
 
 
 class FakeProc:

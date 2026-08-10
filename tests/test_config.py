@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from mail_agent.config import Config, ConfigError, render_himalaya_config
+from gsuite_agent.config import Config, ConfigError, render_himalaya_config
 
 REQUIRED = {
     "GMAIL_USER": "me@gmail.com",
