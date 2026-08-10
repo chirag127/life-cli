@@ -12,6 +12,7 @@ import sys
 
 from . import cas, docs, google_auth, sheets
 from . import calendar as cal
+from . import calendar_monitor
 from . import drive as drive_mod
 from . import gmail_api as mail
 
@@ -136,6 +137,9 @@ def _build() -> argparse.ArgumentParser:
     cr.add_argument("event_id")
     cr.add_argument("--calendar", default="primary")
     cr.set_defaults(fn=lambda a: cal.delete_event(a.event_id, a.calendar, account=acct(a)))
+    cmn = c.add_parser("monitor")
+    cmn.add_argument("snapshot", help="snapshot JSON path (diff vs previous run)")
+    cmn.set_defaults(fn=lambda a: calendar_monitor.monitor("google", acct(a), a.snapshot))
 
     # cas
     ca = sub.add_parser("cas").add_subparsers(dest="cmd", required=True)
