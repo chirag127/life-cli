@@ -1,0 +1,15 @@
+{
+  "amc": {
+    "hdfc": "cliser@hdfcfund.com",
+    "sbi": "customer.delight@sbimf.com",
+    "icici": "enquiry@icicipruamc.com",
+    "axis": "customercare@axismf.com",
+    "nippon": "customer_care@nipponindiaim.com",
+    "kotak": "mutual@kotak.com"
+  },
+  "provider": {
+    "cams": "camsonline@camsonline.com",
+    "kfintech": "customercare@kfintech.com",
+    "mfcentral": "info@mfcentral.com"
+  }
+}

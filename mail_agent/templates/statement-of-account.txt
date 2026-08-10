@@ -1,0 +1,18 @@
+Dear Sir/Madam,
+
+I request a Statement of Account for my mutual fund folio.
+
+Name: {name}
+PAN: {PAN}
+Folio: {folio}
+Registered email: {registered_email}
+
+Please send a physical copy by post to my registered address below, and a digital copy to my registered email.
+
+Address:
+{address}
+
+Thank you.
+
+Regards,
+{name}

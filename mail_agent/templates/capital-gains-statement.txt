@@ -1,0 +1,18 @@
+Dear Sir/Madam,
+
+I request a Capital Gains Statement for my mutual fund folio for the applicable financial year.
+
+Name: {name}
+PAN: {PAN}
+Folio: {folio}
+Registered email: {registered_email}
+
+Please send a physical copy by post to my registered address below, and a digital copy to my registered email.
+
+Address:
+{address}
+
+Thank you.
+
+Regards,
+{name}

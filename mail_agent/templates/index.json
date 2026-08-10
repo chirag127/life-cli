@@ -1,0 +1,22 @@
+{
+  "statement-of-account": {
+    "file": "statement-of-account.txt",
+    "recipient_type": "RTA",
+    "subject": "Request for Statement of Account - Folio {folio} / PAN {PAN}"
+  },
+  "consolidated-account-statement": {
+    "file": "consolidated-account-statement.txt",
+    "recipient_type": "RTA",
+    "subject": "Request for Consolidated Account Statement (CAS) - PAN {PAN}"
+  },
+  "transaction-holding-statement": {
+    "file": "transaction-holding-statement.txt",
+    "recipient_type": "RTA",
+    "subject": "Request for Transaction-cum-Holding Statement - Folio {folio} / PAN {PAN}"
+  },
+  "capital-gains-statement": {
+    "file": "capital-gains-statement.txt",
+    "recipient_type": "RTA",
+    "subject": "Request for Capital Gains Statement - Folio {folio} / PAN {PAN}"
+  }
+}

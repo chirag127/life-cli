@@ -1,0 +1,11 @@
+[
+  { "template": "forms.txt", "recipient_type": "AMC", "subject": "Request for Physical Copy of Scheme Forms — {scheme_name} ({amc_name})" },
+  { "template": "factsheet.txt", "recipient_type": "AMC", "subject": "Request for Physical Copy of Fund Factsheet — {scheme_name} ({amc_name})" },
+  { "template": "investment-outlook.txt", "recipient_type": "AMC", "subject": "Request for Physical Copy of Investment Outlook — {scheme_name} ({amc_name})" },
+  { "template": "presentation.txt", "recipient_type": "AMC", "subject": "Request for Physical Copy of Scheme Presentation — {scheme_name} ({amc_name})" },
+  { "template": "scheme-brochure.txt", "recipient_type": "AMC", "subject": "Request for Physical Copy of Scheme Brochure — {scheme_name} ({amc_name})" },
+  { "template": "sid.txt", "recipient_type": "AMC", "subject": "Request for Physical Copy of Scheme Information Document (SID) — {scheme_name} ({amc_name})" },
+  { "template": "kim.txt", "recipient_type": "AMC", "subject": "Request for Physical Copy of Key Information Memorandum (KIM) — {scheme_name} ({amc_name})" },
+  { "template": "sai.txt", "recipient_type": "AMC", "subject": "Request for Physical Copy of Statement of Additional Information (SAI) — {scheme_name} ({amc_name})" },
+  { "template": "addendum-notice.txt", "recipient_type": "AMC", "subject": "Request for Physical Copy of Addendum / Notice — {scheme_name} ({amc_name})" }
+]

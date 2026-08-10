@@ -1,0 +1,18 @@
+Subject: Request for Physical Copy of Statement of Additional Information (SAI) — {scheme_name} ({amc_name})
+
+Dear {amc_name} Investor Services,
+
+Please dispatch a physical copy of the Statement of Additional Information (SAI) for {scheme_name} to my registered address.
+
+Name: {name}
+PAN: {pan}
+Folio: {folio}
+Registered Email: {registered_email}
+Registered Address: {address}
+
+Kindly courier the printed SAI to the above address.
+
+Thank you.
+
+Regards,
+{name}
