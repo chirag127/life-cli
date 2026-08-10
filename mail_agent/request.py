@@ -8,7 +8,24 @@ import sys
 from pathlib import Path
 from string import Formatter
 
-from mail_agent import cas, mail
+from mail_agent import cas
+
+
+def _backend():
+    """Pick mail backend: MAIL_BACKEND=gmail_api (default, universal) | smtp | himalaya."""
+    import os
+    name = os.environ.get("MAIL_BACKEND", "gmail_api")
+    if name == "smtp":
+        from mail_agent import smtp_send
+        return smtp_send
+    if name == "himalaya":
+        from mail_agent import mail
+        return mail
+    from mail_agent import gmail_api
+    return gmail_api
+
+
+mail = _backend()
 
 TEMPLATES = Path(__file__).resolve().parent / "templates"
 _INDEX = TEMPLATES / "index.json"

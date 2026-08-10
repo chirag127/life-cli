@@ -1,18 +1,17 @@
 [project]
 name = "mail-agent"
 version = "0.1.0"
-description = "CLI email agent + mutual-fund document requester (himalaya-backed)"
+description = "CLI email agent + mutual-fund document requester (Gmail API OAuth2, SMTP, or himalaya backends)"
 readme = "README.md"
 requires-python = ">=3.12"
 license = "MIT"
-dependencies = ["python-dotenv>=1.2.2", "casparser>=0.8.0", "pyxirr>=0.10.8"]
+dependencies = ["python-dotenv>=1.2.2", "casparser>=0.8.0", "pyxirr>=0.10.8", "google-api-python-client>=2.184.0", "google-auth-oauthlib>=1.2.2", "google-auth>=2.42.0"]
 
 [project.scripts]
 mail-agent = "mail_agent.request:main"
 
 [project.optional-dependencies]
 dev = ["pytest>=8.4.2"]
-gmail = ["google-api-python-client>=2.184.0", "google-auth-oauthlib>=1.2.2", "google-auth>=2.42.0"]
 
 [build-system]
 requires = ["hatchling"]
