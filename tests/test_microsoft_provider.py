@@ -7,8 +7,8 @@ from types import SimpleNamespace
 
 import pytest
 
-from gsuite_agent.providers import microsoft_provider as mp
-from gsuite_agent.providers.microsoft_provider import MicrosoftProvider
+from life_cli.providers import microsoft_provider as mp
+from life_cli.providers.microsoft_provider import MicrosoftProvider
 
 
 def _async(value):
@@ -57,7 +57,7 @@ def provider(monkeypatch):
 
 def test_registry_imports_without_sdk():
     # importing the registry + this module must not require msgraph/azure
-    from gsuite_agent.providers.registry import get_provider
+    from life_cli.providers.registry import get_provider
     assert get_provider("microsoft").name == "microsoft"
 
 

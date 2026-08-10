@@ -11,8 +11,8 @@ from dataclasses import asdict
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
-from gsuite_agent.core.models import CalendarEvent
-from gsuite_agent.providers.registry import get_provider
+from life_cli.core.models import CalendarEvent
+from life_cli.providers.registry import get_provider
 
 _WINDOW_DAYS = 90
 _MAX = 2500

@@ -2,8 +2,8 @@ import base64
 
 import pytest
 
-from gsuite_agent import takeout
-from gsuite_agent.core.models import Message
+from life_cli import takeout
+from life_cli.core.models import Message
 
 
 def _b64(s: str) -> str:
@@ -120,7 +120,7 @@ def test_data_portability_initiates(monkeypatch):
         def portabilityArchive(self):
             return _Archive()
 
-    from gsuite_agent import google_auth
+    from life_cli import google_auth
     monkeypatch.setattr(google_auth, "service",
                         lambda api, v, account: captured.update(api=api, account=account) or _Svc())
     r = takeout.data_portability_export(["myactivity.search"], account="chirag")

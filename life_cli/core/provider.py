@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from typing import Protocol, runtime_checkable
 
-from gsuite_agent.core.models import CalendarEvent, Contact, DriveFile, Message
+from life_cli.core.models import CalendarEvent, Contact, DriveFile, Message
 
 
 @runtime_checkable

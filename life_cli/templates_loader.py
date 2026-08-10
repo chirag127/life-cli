@@ -6,7 +6,7 @@ import json
 from importlib.resources import files
 from typing import TypedDict
 
-_PKG = "gsuite_agent.templates"
+_PKG = "life_cli.templates"
 FIELDS = ("name", "PAN", "folio", "registered_email", "address")
 
 

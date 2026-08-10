@@ -127,7 +127,7 @@ def data_portability_export(resources: list[str], account: str | None = None) ->
     ({archiveJobId, ...}); poll archiveJobs.getPortabilityArchiveState +
     fetch signed URLs to complete. Covers a SUBSET of Takeout products only.
     """
-    from gsuite_agent import google_auth
+    from life_cli import google_auth
 
     svc = google_auth.service("dataportability", "v1", account=account)
     return svc.portabilityArchive().initiate(

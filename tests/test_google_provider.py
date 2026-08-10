@@ -1,8 +1,8 @@
 from datetime import datetime
 
-from gsuite_agent.core.models import CalendarEvent
-from gsuite_agent.providers import google_provider as gp
-from gsuite_agent.providers.google_provider import GoogleProvider
+from life_cli.core.models import CalendarEvent
+from life_cli.providers import google_provider as gp
+from life_cli.providers.google_provider import GoogleProvider
 
 
 def test_capabilities():

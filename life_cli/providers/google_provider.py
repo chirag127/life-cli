@@ -9,12 +9,12 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Any
 
-from gsuite_agent import calendar as gcal
-from gsuite_agent import drive as gdrive
-from gsuite_agent import gmail_api
-from gsuite_agent import google_auth
-from gsuite_agent.core.models import CalendarEvent, Contact, DriveFile, Message
-from gsuite_agent.core.provider import Provider
+from life_cli import calendar as gcal
+from life_cli import drive as gdrive
+from life_cli import gmail_api
+from life_cli import google_auth
+from life_cli.core.models import CalendarEvent, Contact, DriveFile, Message
+from life_cli.core.provider import Provider
 
 
 def _dt(s: str | None) -> datetime | None:

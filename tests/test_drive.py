@@ -1,6 +1,6 @@
 import pytest
 
-from gsuite_agent import drive
+from life_cli import drive
 
 
 class FakeExec:

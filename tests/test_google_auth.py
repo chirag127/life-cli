@@ -6,7 +6,7 @@ import types
 
 import pytest
 
-from gsuite_agent import google_auth
+from life_cli import google_auth
 
 
 # ---- SCOPES ----
@@ -172,10 +172,10 @@ def test_credentials_flow_passes_login_hint(monkeypatch, tmp_path):
     monkeypatch.setattr(google_auth, "_CFG", tmp_path)
     monkeypatch.setattr(google_auth, "CLIENT_SECRET", tmp_path / "client.json")
     (tmp_path / "client.json").write_text("{}")
-    monkeypatch.setenv("GOOGLE_ACCOUNT_why", "whyiswhen@gmail.com")
+    monkeypatch.setenv("GOOGLE_ACCOUNT_why", "second@gmail.com")
 
     google_auth.credentials("why")
-    assert state["run_kw"] == {"login_hint": "whyiswhen@gmail.com"}
+    assert state["run_kw"] == {"login_hint": "second@gmail.com"}
     assert tok.read_text() == '{"tok": 1}'
 
 

@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from gsuite_agent import gtool
+from life_cli import gtool
 
 
 @pytest.fixture

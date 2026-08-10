@@ -10,7 +10,7 @@ from string import Formatter
 
 
 
-from gsuite_agent import cas, gmail_api as mail
+from life_cli import cas, gmail_api as mail
 
 TEMPLATES = Path(__file__).resolve().parent / "templates"
 _INDEX = TEMPLATES / "index.json"

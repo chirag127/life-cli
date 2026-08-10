@@ -2,7 +2,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from gsuite_agent import docs
+from life_cli import docs
 
 
 @pytest.fixture

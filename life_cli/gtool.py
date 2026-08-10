@@ -1,4 +1,4 @@
-"""Unified gtool CLI — argparse dispatch to gsuite_agent modules, JSON to stdout.
+"""Unified gtool CLI — argparse dispatch to life_cli modules, JSON to stdout.
 
 Global --account/-A selects the OAuth token (default env GOOGLE_ACCOUNT=why).
 Every subcommand forwards account to the module, which forwards to

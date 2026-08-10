@@ -12,8 +12,8 @@ import asyncio
 import os
 from typing import Any
 
-from gsuite_agent.core.models import CalendarEvent, Contact, DriveFile, Message
-from gsuite_agent.core.provider import Provider
+from life_cli.core.models import CalendarEvent, Contact, DriveFile, Message
+from life_cli.core.provider import Provider
 
 _SCOPES = ["Mail.ReadWrite", "Mail.Send", "Calendars.ReadWrite",
            "Files.ReadWrite", "Contacts.Read"]

@@ -10,7 +10,7 @@ from typing import Any
 
 import casparser
 
-from gsuite_agent.config import Config
+from life_cli.config import Config
 
 _CASHIN = {"REDEMPTION", "SWITCH_OUT", "SWITCH_OUT_MERGER", "SEGREGATION"}
 _NONCASH = {

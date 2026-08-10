@@ -1,7 +1,7 @@
 """Unified Google OAuth2 — ONE token per ACCOUNT, ALL scopes.
 
-Multi-account (chirag = chiragsinghal127@ = Google-apps identity; why =
-whyiswhen@ = i2i/MF/oriz/projects). One OAuth client, a token per account,
+Multi-account (primary = you@ = Google-apps identity; secondary =
+second@ = your projects). One OAuth client, a token per account,
 selected by name (env GOOGLE_ACCOUNT or account= arg).
 
 Pure Python (google-api-python-client) — works on this DLP-locked AVD where
@@ -9,8 +9,8 @@ standalone binaries like gog.exe are blocked. rclone handles Drive files.
 
 .env:
     GOOGLE_ACCOUNTS=chirag,why
-    GOOGLE_ACCOUNT_chirag=chiragsinghal127@gmail.com
-    GOOGLE_ACCOUNT_why=whyiswhen@gmail.com
+    GOOGLE_ACCOUNT_primary=you@gmail.com
+    GOOGLE_ACCOUNT_secondary=second@gmail.com
     GOOGLE_ACCOUNT=why
 
 Setup once: Cloud project 'gsuite-agent' -> enable Gmail/Drive/Docs/Sheets/

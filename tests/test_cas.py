@@ -5,7 +5,7 @@ from datetime import date
 
 import pytest
 
-from gsuite_agent import cas
+from life_cli import cas
 
 
 def _txns(rate_flows):

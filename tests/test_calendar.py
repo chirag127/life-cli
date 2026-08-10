@@ -1,6 +1,6 @@
 import pytest
 
-from gsuite_agent import calendar
+from life_cli import calendar
 
 
 class Exec:

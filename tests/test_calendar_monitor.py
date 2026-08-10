@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 
-from gsuite_agent import calendar_monitor as cm
-from gsuite_agent.core.models import CalendarEvent
+from life_cli import calendar_monitor as cm
+from life_cli.core.models import CalendarEvent
 
 
 def _ev(i, summary="Mtg", start=None, end=None, **kw):

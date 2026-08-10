@@ -1,6 +1,6 @@
 import pytest
 
-from gsuite_agent import contacts
+from life_cli import contacts
 
 
 class FakeExec:

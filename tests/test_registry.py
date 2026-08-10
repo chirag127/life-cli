@@ -1,7 +1,7 @@
 import pytest
 
-from gsuite_agent.core.provider import Provider
-from gsuite_agent.providers import registry
+from life_cli.core.provider import Provider
+from life_cli.providers import registry
 
 
 def test_list_providers():

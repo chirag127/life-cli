@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from gsuite_agent import request
+from life_cli import request
 
 
 class FakeMail:

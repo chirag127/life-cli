@@ -2,7 +2,7 @@
 
 You do these once (browser). Everything else is automated.
 
-## A. Google OAuth (~7 min) — sign in as chiragsinghal127@gmail.com
+## A. Google OAuth (~7 min) — sign in as you@gmail.com
 
 ### 1. Create project
 - console.cloud.google.com → project dropdown → **New Project** → name `gsuite-agent` → Create → select it.
@@ -19,7 +19,7 @@ You do these once (browser). Everything else is automated.
 - User Type **External** → Create.
 - App name `gsuite-agent`, support email + dev email = yours → Save and Continue.
 - Scopes → Save and Continue (scopes set in code).
-- **Test users → Add**: BOTH `chiragsinghal127@gmail.com` + `whyiswhen@gmail.com` → Save.
+- **Test users → Add**: BOTH `you@gmail.com` + `second@gmail.com` → Save.
 - (Testing mode = no Google review; tokens expire 7 days. Click **Publish App** to make permanent — still no review for personal use.)
 
 ### 4. OAuth client (APIs & Services → Credentials)

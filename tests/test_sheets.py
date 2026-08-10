@@ -1,6 +1,6 @@
 import pytest
 
-from gsuite_agent import sheets
+from life_cli import sheets
 
 
 class FakeReq:

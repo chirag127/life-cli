@@ -2,7 +2,7 @@ import base64
 
 import pytest
 
-from gsuite_agent import gmail_api
+from life_cli import gmail_api
 
 
 class FakeExec:
