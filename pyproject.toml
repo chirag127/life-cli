@@ -12,6 +12,7 @@ mail-agent = "mail_agent.request:main"
 
 [project.optional-dependencies]
 dev = ["pytest>=8.4.2"]
+gmail = ["google-api-python-client>=2.184.0", "google-auth-oauthlib>=1.2.2", "google-auth>=2.42.0"]
 
 [build-system]
 requires = ["hatchling"]

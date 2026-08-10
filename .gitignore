@@ -2,3 +2,7 @@
 __pycache__/
 *.pyc
 downloads/
+
+# Gmail OAuth (never commit)
+config/gmail-token.json
+config/gmail-oauth-client.json
