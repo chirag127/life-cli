@@ -21,6 +21,7 @@ consent; token cached config/token-<account>.json.
 from __future__ import annotations
 
 import os
+os.environ.setdefault("OAUTHLIB_RELAX_TOKEN_SCOPE", "1")
 from pathlib import Path
 
 SCOPES = [
@@ -34,7 +35,9 @@ SCOPES = [
     "https://www.googleapis.com/auth/contacts",            # Contacts
     "https://www.googleapis.com/auth/tasks",               # Tasks
     "https://www.googleapis.com/auth/photoslibrary.readonly",  # Photos (read)
-    "https://www.googleapis.com/auth/dataportability.myactivity.search",  # Takeout/portability
+    # NOTE: dataportability.* scopes CANNOT mix with other scopes (Google rejects
+    # the combined consent). Portability/Takeout uses its own separate token — see
+    # DATA_PORTABILITY_SCOPES + credentials(scopes=...) for that isolated flow.
     "https://www.googleapis.com/auth/userinfo.profile",
     "https://www.googleapis.com/auth/userinfo.email",
 ]
